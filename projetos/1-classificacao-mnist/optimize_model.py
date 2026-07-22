@@ -12,4 +12,19 @@ import os
 #   4. Salvar o resultado como "model.tflite"
 # ---------------------------------------------------------------------------
 
-# insira seu código aqui
+# carregando o modelo treinado
+modelo = tf.keras.models.load_model('projetos/1-classificacao-mnist/model.h5')
+
+#convertendo para TensorFlow Lite
+converter = tf.lite.TFLiteConverter.from_keras_model(modelo)
+
+# Aplicando a Otimização exigida
+converter.optimizations = [tf.lite.Optimize.DEFAULT]
+
+#convertendo o modelo para TFLite
+tflite_model = converter.convert()
+
+# Salvando o modelo otimizado
+caminho_tflite = 'projetos/1-classificacao-mnist/model.tflite'
+with open(caminho_tflite, 'wb') as f:
+    f.write(tflite_model)
