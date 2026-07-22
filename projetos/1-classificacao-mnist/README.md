@@ -132,5 +132,6 @@ Amostra 5: predito=4 | real=4
 Amostra 6: predito=1 | real=1
 Amostra 7: predito=4 | real=4
 Amostra 8: predito=9 | real=9
+```
 
 O artefato otimizado .tflite obteve 100% de acerto no lote de amostras avaliado. A quantização não comprometeu a capacidade de generalização do modelo em imagens individuais de teste, demonstrando prontidão para deploy em hardware embarcado.
